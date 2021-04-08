@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6050EF4E-F87B-41E9-AFDD-748C218B1FEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ds.enovia</RootNamespace>
+    <AssemblyName>ds.enovia</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ds.enovia.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ds.authentication, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5c15406849d75246, processorArchitecture=MSIL">
+      <HintPath>packages\ds.authentication.1.0.1\lib\net452\ds.authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="ds.enovia.common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=0be2ec88375bad02, processorArchitecture=MSIL">
+      <HintPath>packages\ds.enovia.common.1.0.1\lib\net20\ds.enovia.common.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="exception\ResponseException.cs" />
+    <Compile Include="exception\UserInfoException.cs" />
+    <Compile Include="model\CompanyRole.cs" />
+    <Compile Include="redirection\UserInfoRedirection.cs" />
+    <Compile Include="service\EnoviaJsonRequest.cs" />
+    <Compile Include="model\CollaborationSpace.cs" />
+    <Compile Include="model\CollaborativeSpaceAccess.cs" />
+    <Compile Include="model\CsrfToken.cs" />
+    <Compile Include="model\Organization.cs" />
+    <Compile Include="model\OrganizationRolePair.cs" />
+    <Compile Include="service\EnoviaBaseService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="model\Role.cs" />
+    <Compile Include="model\SecurityContext.cs" />
+    <Compile Include="model\UserInfo.cs" />
+    <Compile Include="service\EnoviaBaseRequest.cs" />
+    <Compile Include="service\UserInfoService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ds.enovia.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="mask\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
