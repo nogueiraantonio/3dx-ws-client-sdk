@@ -16,8 +16,8 @@
 
 namespace ds.enovia.dseng.model.filterable
 {
-    public class EngInstanceEffectivityContent
+    public class EngineeringInstanceEffectivityHasEffectivity : EngineeringInstanceEffectivityContent
     {
-        public ds.enovia.dscfg.model.EffectivityBaseContent effectivityContent { get; set; }
+        public string hasEffectivity { get; set; }
     }
 }

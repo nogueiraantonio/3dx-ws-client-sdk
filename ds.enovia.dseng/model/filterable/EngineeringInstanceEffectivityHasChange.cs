@@ -14,12 +14,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //------------------------------------------------------------------------------------------------------------------------------------
 
-using ds.enovia.common.model;
 
-namespace ds.enovia.dseng.model
+namespace ds.enovia.dseng.model.filterable
 {
-    public class EngineeringInstanceRef : EngineeringInstance
+    public class EngineeringInstanceEffectivityHasChange : EngineeringInstanceEffectivityContent
     {
-        public BusinessObjectId referencedObject{ get; set; }
+        public string hasChange { get; set;}
     }
 }

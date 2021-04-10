@@ -47,8 +47,8 @@
     <Reference Include="ds.enovia.common, Version=1.1.4.0, Culture=neutral, PublicKeyToken=0be2ec88375bad02, processorArchitecture=MSIL">
       <HintPath>packages\ds.enovia.common.1.1.4\lib\net452\ds.enovia.common.dll</HintPath>
     </Reference>
-    <Reference Include="ds.enovia.dscfg, Version=1.0.1.0, Culture=neutral, PublicKeyToken=74a474a382d131f6, processorArchitecture=MSIL">
-      <HintPath>packages\ds.enovia.dscfg.1.0.1\lib\net472\ds.enovia.dscfg.dll</HintPath>
+    <Reference Include="ds.enovia.dscfg, Version=1.0.2.0, Culture=neutral, PublicKeyToken=74a474a382d131f6, processorArchitecture=MSIL">
+      <HintPath>packages\ds.enovia.dscfg.1.0.2\lib\net472\ds.enovia.dscfg.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -76,7 +76,7 @@
     <Compile Include="mask\EngineeringConfiguredMask.cs" />
     <Compile Include="model\configured\ConfigurationContext.cs" />
     <Compile Include="model\filterable\EngineeringInstanceEffectivity.cs" />
-    <Compile Include="model\EngineeringInstanceRef.cs" />
+    <Compile Include="model\EngineeringInstanceReference.cs" />
     <Compile Include="model\EngineeringInstance.cs" />
     <Compile Include="model\configured\EngineeringItemConfigurationBase.cs" />
     <Compile Include="model\configured\EngineeringItemEnabledCriteria.cs" />
@@ -86,9 +86,9 @@
     <Compile Include="model\EnterpriseReferenceSet.cs" />
     <Compile Include="model\EnterpriseReference.cs" />
     <Compile Include="model\EnterpriseReferenceCreate.cs" />
-    <Compile Include="model\filterable\EngInstanceEffectivityContent.cs" />
-    <Compile Include="model\filterable\EngInstanceEffectivityHasChange.cs" />
-    <Compile Include="model\filterable\EngInstanceEffectivityHasEffectivity.cs" />
+    <Compile Include="model\filterable\EngineeringInstanceEffectivityContent.cs" />
+    <Compile Include="model\filterable\EngineeringInstanceEffectivityHasChange.cs" />
+    <Compile Include="model\filterable\EngineeringInstanceEffectivityHasEffectivity.cs" />
     <Compile Include="model\Resource.cs" />
     <Compile Include="service\EngineeringServices.cs" />
     <Compile Include="mask\EngineeringMaskExtension.cs" />
@@ -99,7 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ds.enovia.eng.snk" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

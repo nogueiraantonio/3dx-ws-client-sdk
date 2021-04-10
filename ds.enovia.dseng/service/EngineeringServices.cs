@@ -170,12 +170,16 @@ namespace ds.enovia.dseng.service
             return null;
         }
 
-        #region  dseng:EngInstance
-        
+        #region  dseng:EngInstance        
         //Gets all the Engineering Item Instances
-        public async Task<NlsLabeledItemSet<EngineeringInstanceRef>> GetEngineeringInstances(EngineeringItem _item)
+        public async Task<NlsLabeledItemSet<EngineeringInstanceReference>> GetEngineeringInstances(EngineeringItem _item)
         {
-            string getEngineeringInstances = string.Format("{0}/{1}{2}", GetBaseResource(), _item.id, ENGINEERING_INSTANCES);
+            return await GetEngineeringInstances(_item.id);
+        }
+
+        public async Task<NlsLabeledItemSet<EngineeringInstanceReference>> GetEngineeringInstances(string _itemId)
+        {
+            string getEngineeringInstances = string.Format("{0}/{1}{2}", GetBaseResource(), _itemId, ENGINEERING_INSTANCES);
 
             Dictionary<string, string> queryParams = new Dictionary<string, string>();
             queryParams.Add("$mask", "dsmveng:EngInstanceMask.Details");
@@ -188,12 +192,12 @@ namespace ds.enovia.dseng.service
                 throw (new EngineeringResponseException(requestResponse));
             }
 
-            return JsonConvert.DeserializeObject<NlsLabeledItemSet<EngineeringInstanceRef>>(requestResponse.Content);
+            return JsonConvert.DeserializeObject<NlsLabeledItemSet<EngineeringInstanceReference>>(requestResponse.Content);
         }
 
-        public async Task< NlsLabeledItemSet<EngineeringInstanceEffectivity>> GetEngineeringInstancesEffectivity(EngineeringItem _item)
+        public async Task< NlsLabeledItemSet<EngineeringInstanceEffectivity>> GetEngineeringInstancesEffectivity(string _itemId)
         {
-            string getEngineeringInstances = string.Format("{0}/{1}{2}", GetBaseResource(), _item.id, ENGINEERING_INSTANCES);
+            string getEngineeringInstances = string.Format("{0}/{1}{2}", GetBaseResource(), _itemId, ENGINEERING_INSTANCES);
 
             Dictionary<string, string> queryParams = new Dictionary<string, string>();
             queryParams.Add("$mask", "dsmveng:EngInstanceMask.Filterable");
@@ -208,10 +212,15 @@ namespace ds.enovia.dseng.service
 
             return JsonConvert.DeserializeObject<NlsLabeledItemSet<EngineeringInstanceEffectivity>>(requestResponse.Content);
         }
+
+        public async Task<NlsLabeledItemSet<EngineeringInstanceEffectivity>> GetEngineeringInstancesEffectivity(EngineeringItem _item)
+        {
+            return await GetEngineeringInstancesEffectivity(_item.id);
+        }
         #endregion
 
         #region  dscfg:Filterable
-        public async Task<ItemSet<EngInstanceEffectivityContent>> GetEngineeringInstanceEffectivity(string _itemId, string _instanceId)
+        public async Task<ItemSet<EngineeringInstanceEffectivityContent>> GetEngineeringInstanceEffectivity(string _itemId, string _instanceId)
         {
             string getEngineeringInstances = string.Format("{0}/{1}{2}/{3}", GetBaseResource(), _itemId, ENGINEERING_INSTANCES, _instanceId, FILTERABLE);
 
@@ -227,10 +236,10 @@ namespace ds.enovia.dseng.service
                 throw (new EngineeringResponseException(requestResponse));
             }
 
-            return JsonConvert.DeserializeObject<ItemSet<EngInstanceEffectivityContent>>(requestResponse.Content); ;
+            return JsonConvert.DeserializeObject<ItemSet<EngineeringInstanceEffectivityContent>>(requestResponse.Content); ;
         }
 
-        public async Task< ItemSet<EngInstanceEffectivityHasEffectivity>> GetEngineeringInstanceHasEffectivity(string _itemId, string _instanceId)
+        public async Task< ItemSet<EngineeringInstanceEffectivityHasEffectivity>> GetEngineeringInstanceHasEffectivity(string _itemId, string _instanceId)
         {
             string getEngineeringInstances = string.Format("{0}/{1}{2}/{3}", GetBaseResource(), _itemId, ENGINEERING_INSTANCES, _instanceId, FILTERABLE);
 
@@ -246,10 +255,10 @@ namespace ds.enovia.dseng.service
                 throw (new EngineeringResponseException(requestResponse));
             }
 
-            return JsonConvert.DeserializeObject<ItemSet<EngInstanceEffectivityHasEffectivity>>(requestResponse.Content); ;
+            return JsonConvert.DeserializeObject<ItemSet<EngineeringInstanceEffectivityHasEffectivity>>(requestResponse.Content); ;
         }
 
-        public async Task<ItemSet<EngInstanceEffectivityHasChange>> GetEngineeringInstanceHasChangeOrder(string _itemId, string _instanceId)
+        public async Task<ItemSet<EngineeringInstanceEffectivityHasChange>> GetEngineeringInstanceHasChangeOrder(string _itemId, string _instanceId)
         {
             string getEngineeringInstances = string.Format("{0}/{1}{2}/{3}", GetBaseResource(), _itemId, ENGINEERING_INSTANCES, _instanceId, FILTERABLE);
 
@@ -264,13 +273,11 @@ namespace ds.enovia.dseng.service
                 //handle according to established exception policy
                 throw (new EngineeringResponseException(requestResponse));
             }
-            return JsonConvert.DeserializeObject<ItemSet<EngInstanceEffectivityHasChange>>(requestResponse.Content); ;            
-        }
-       
+            return JsonConvert.DeserializeObject<ItemSet<EngineeringInstanceEffectivityHasChange>>(requestResponse.Content); ;            
+        }       
         #endregion
 
         #region  dscfg:Configured
-
         //This extension gets the Enabled Criteria and Configuration Contexts of Configured object
         public async Task<EngineeringItemConfigurationDetails> GetConfigurationDetails(string _itemId)
         {
@@ -298,10 +305,13 @@ namespace ds.enovia.dseng.service
 
         public async Task<bool?> GetIsConfigured(string _itemId)
         {
-            string getIsConfigured = string.Format("{0}/{1}{2}", GetBaseResource(), _itemId, CONFIGURED);
+            //string getIsConfigured = string.Format("{0}/{1}{2}", GetBaseResource(), _itemId, CONFIGURED); // Method 1 
+            string getIsConfigured = string.Format("{0}/{1}", GetBaseResource(), _itemId); // Method 2
 
             Dictionary<string, string> queryParams = new Dictionary<string, string>();
-            queryParams.Add("$fields", "dsmvcfg:attribute.isConfigured");
+            //queryParams.Add("$fields", "dsmvcfg:attribute.isConfigured"); // Method 1 
+             queryParams.Add("$mask", "dskern:Mask.Default"); // Method 2
+             queryParams.Add("$fields", "dsmvcfg:attribute.isConfigured"); // Method 2
 
             IRestResponse requestResponse = await GetAsync(getIsConfigured, queryParams);
 
@@ -320,9 +330,7 @@ namespace ds.enovia.dseng.service
             }
 
             return null;
-        }
-        
+        }        
         #endregion
-
     }
 }

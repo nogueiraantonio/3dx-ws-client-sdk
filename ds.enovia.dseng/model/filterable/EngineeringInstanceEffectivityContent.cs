@@ -14,11 +14,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //------------------------------------------------------------------------------------------------------------------------------------
 
-
 namespace ds.enovia.dseng.model.filterable
 {
-    public class EngInstanceEffectivityHasChange : EngInstanceEffectivityContent
+    public class EngineeringInstanceEffectivityContent
     {
-        public string hasChange { get; set;}
+        public ds.enovia.dscfg.model.EffectivityBaseContent effectivityContent { get; set; }
     }
 }
