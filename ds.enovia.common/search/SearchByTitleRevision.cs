@@ -33,11 +33,11 @@ namespace ds.enovia.common.search
         {
             if (null == m_collaborativeSpace)
             {
-                return string.Format("[label]:\"{0}\" AND revision:{1}", m_titleCriteria, m_revisionCriteria);
+                return string.Format("label:\"{0}\" AND revision:{1}", m_titleCriteria, m_revisionCriteria);
             }
             else
             {
-                return string.Format("[label]:\"{0}\" AND revision:{1} AND [project]:({2})", m_titleCriteria, m_revisionCriteria, m_collaborativeSpace);
+                return string.Format("label:\"{0}\" AND revision:{1} AND project:({2})", m_titleCriteria, m_revisionCriteria, m_collaborativeSpace);
             }
         }
     }

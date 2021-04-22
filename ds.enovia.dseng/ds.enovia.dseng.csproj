@@ -41,14 +41,14 @@
     <Reference Include="ds.authentication, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5c15406849d75246, processorArchitecture=MSIL">
       <HintPath>packages\ds.authentication.1.0.1\lib\net452\ds.authentication.dll</HintPath>
     </Reference>
-    <Reference Include="ds.enovia, Version=1.0.3.0, Culture=neutral, PublicKeyToken=e202c4a29a6a20d8, processorArchitecture=MSIL">
-      <HintPath>packages\ds.enovia.1.0.3\lib\net452\ds.enovia.dll</HintPath>
+    <Reference Include="ds.enovia, Version=1.0.4.0, Culture=neutral, PublicKeyToken=e202c4a29a6a20d8, processorArchitecture=MSIL">
+      <HintPath>packages\ds.enovia.1.0.4\lib\net452\ds.enovia.dll</HintPath>
     </Reference>
-    <Reference Include="ds.enovia.common, Version=1.1.4.0, Culture=neutral, PublicKeyToken=0be2ec88375bad02, processorArchitecture=MSIL">
-      <HintPath>packages\ds.enovia.common.1.1.4\lib\net452\ds.enovia.common.dll</HintPath>
+    <Reference Include="ds.enovia.common, Version=1.1.5.0, Culture=neutral, PublicKeyToken=0be2ec88375bad02, processorArchitecture=MSIL">
+      <HintPath>packages\ds.enovia.common.1.1.5\lib\net452\ds.enovia.common.dll</HintPath>
     </Reference>
-    <Reference Include="ds.enovia.dscfg, Version=1.0.2.0, Culture=neutral, PublicKeyToken=74a474a382d131f6, processorArchitecture=MSIL">
-      <HintPath>packages\ds.enovia.dscfg.1.0.2\lib\net472\ds.enovia.dscfg.dll</HintPath>
+    <Reference Include="ds.enovia.dscfg, Version=1.0.6.0, Culture=neutral, PublicKeyToken=74a474a382d131f6, processorArchitecture=MSIL">
+      <HintPath>packages\ds.enovia.dscfg.1.0.6\lib\net472\ds.enovia.dscfg.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
