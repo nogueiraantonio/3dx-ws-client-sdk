@@ -201,8 +201,23 @@ namespace ds.enovia.service
 
         public async Task<IRestResponse> PatchAsync(string _endpoint, IDictionary<string, string> _queryParameters = null, IDictionary<string, string> _headers = null, string _body = null, bool _bodyIsJson = true, bool _requiresCsrfToken = true, bool _useCsrfCache = true)
         {
+            return await ExecuteAsyncMethod(Method.PATCH, _endpoint, _queryParameters, _headers, _body, _bodyIsJson, _requiresCsrfToken, _useCsrfCache);
+        }
+
+        public async Task<IRestResponse> DeleteAsync(string _endpoint, IDictionary<string, string> _queryParameters = null, IDictionary<string, string> _headers = null,  bool _requiresCsrfToken = true, bool _useCsrfCache = true)
+        {
+            return await ExecuteAsyncMethod(Method.DELETE, _endpoint, _queryParameters, _headers, null, false, _requiresCsrfToken, _useCsrfCache);
+        }
+
+        public async Task<IRestResponse> PutAsync(string _endpoint, IDictionary<string, string> _queryParameters = null, IDictionary<string, string> _headers = null, string _body = null, bool _bodyIsJson = true, bool _requiresCsrfToken = true, bool _useCsrfCache = true)
+        {
+            return await ExecuteAsyncMethod(Method.PUT, _endpoint, _queryParameters, _headers, _body, _bodyIsJson, _requiresCsrfToken, _useCsrfCache);
+        }
+
+        private async Task<IRestResponse> ExecuteAsyncMethod(Method _method, string _endpoint, IDictionary<string, string> _queryParameters = null, IDictionary<string, string> _headers = null, string _body = null, bool _bodyIsJson = true, bool _requiresCsrfToken = true, bool _useCsrfCache = true)
+        {
             IRestRequest __request = await CreateJsonRequest(_endpoint, IncludeTenant, _requiresCsrfToken, _useCsrfCache);
-            __request.Method = Method.PATCH;
+            __request.Method = _method;
 
             if (_queryParameters != null)
             {
@@ -222,26 +237,6 @@ namespace ds.enovia.service
                 else
                     __request.AddXmlBody(_body);
             }
-
-            return await m_client.ExecuteAsync(__request);
-        }
-
-        public async Task<IRestResponse> DeleteAsync(string _endpoint, IDictionary<string, string> _queryParameters = null, IDictionary<string, string> _headers = null,  bool _requiresCsrfToken = true, bool _useCsrfCache = true)
-        {
-            IRestRequest __request = await CreateJsonRequest(_endpoint, IncludeTenant, _requiresCsrfToken, _useCsrfCache);
-
-            __request.Method = Method.DELETE;
-
-            if (_queryParameters != null)
-            {
-                foreach (string keyName in _queryParameters.Keys)
-                {
-                    __request.AddQueryParameter(keyName, _queryParameters[keyName]);
-                }
-            }
-
-            if (_headers != null)
-                __request.AddHeaders(_headers);
 
             return await m_client.ExecuteAsync(__request);
         }

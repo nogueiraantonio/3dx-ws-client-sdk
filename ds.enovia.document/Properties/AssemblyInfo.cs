@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ds.enovia")]
-[assembly: AssemblyDescription("DS EMED CPE 3DEXPERIENCE Web Services Enovia SDK")]
+[assembly: AssemblyTitle("ds.enovia.document")]
+[assembly: AssemblyDescription("DS EMED CPE 3DEXPERIENCE Web Services SDK - Enovia Document (1.1.2) Library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dassault Systèmes - EMED CPE")]
-[assembly: AssemblyProduct("ds.enovia")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("ds.enovia.document")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6050ef4e-f87b-41e9-afdd-748c218b1fea")]
+[assembly: Guid("4ca542e4-d404-4639-be2b-c671d04f7093")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.5.0")]
-[assembly: AssemblyFileVersion("1.0.5.0")]
+[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyFileVersion("1.0.2.0")]
