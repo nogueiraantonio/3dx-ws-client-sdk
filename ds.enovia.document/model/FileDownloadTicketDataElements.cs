@@ -14,12 +14,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //------------------------------------------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace ds.enovia.document.model
 {
-    public class DocumentResponse<T> : TicketResponse<T>
+    public class FileDownloadTicketDataElements
     {
-        public List<object> definitions { get; set; }
+        public string ticketURL { get; set; }
+
+        public string ticketparamname { get; set; }
+        public string ticket { get; set; }
+        public string fileName { get; set; }
+        public string fileNames { get; set; }
     }
 }

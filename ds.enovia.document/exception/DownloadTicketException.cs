@@ -14,12 +14,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //------------------------------------------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
+using ds.enovia.common.exception;
+using RestSharp;
 
-namespace ds.enovia.document.model
+namespace ds.enovia.document.exception
 {
-    public class DocumentResponse<T> : TicketResponse<T>
+    public class DownloadTicketException : ResponseException
     {
-        public List<object> definitions { get; set; }
+        public DownloadTicketException(IRestResponse _response) : base(_response)
+        {
+        }
     }
 }

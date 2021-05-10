@@ -14,12 +14,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //------------------------------------------------------------------------------------------------------------------------------------
 
+using ds.enovia.common;
 using System.Collections.Generic;
 
 namespace ds.enovia.document.model
 {
-    public class DocumentResponse<T> : TicketResponse<T>
+    public class TicketResponse<T> : SerializableJsonObject
     {
-        public List<object> definitions { get; set; }
+        public bool success { get; set; }
+        public long statusCode { get; set; }
+
+        public CsrfToken csrf { get; set; }
+
+        public TicketResponse()
+        {
+            data = new List<T>();
+        }
+
+        public List<T> data { get; set; }
+      
     }
 }

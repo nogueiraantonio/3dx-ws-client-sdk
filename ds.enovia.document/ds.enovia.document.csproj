@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="exception\DownloadTicketException.cs" />
+    <Compile Include="exception\DeleteDocumentException.cs" />
     <Compile Include="exception\DocumentSearchException.cs" />
     <Compile Include="exception\GetDocumentsFromParentException.cs" />
     <Compile Include="exception\CreateDocumentException.cs" />
@@ -87,10 +89,13 @@
     <Compile Include="model\FileCheckInTicket.cs" />
     <Compile Include="model\FileCheckInTicketData.cs" />
     <Compile Include="model\FileCheckInTicketDataElements.cs" />
+    <Compile Include="model\FileDownloadTicket.cs" />
+    <Compile Include="model\FileDownloadTicketDataElements.cs" />
     <Compile Include="model\UserId.cs" />
     <Compile Include="model\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="service\DocumentService.cs" />
+    <Compile Include="model\TicketResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ds.enovia.document.snk" />
